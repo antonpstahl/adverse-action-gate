@@ -35,7 +35,7 @@ uv run python -m aa_gate.reading --run confirm --kind xgb                 # one 
 uv run python -m aa_gate.evaluate --run confirm --kind ebm xgb            # every table: rates, intervals, the difference
 ```
 
-The API key comes from `ANTHROPIC_API_KEY` or a git-ignored `.env`. Every LLM call is cached in `cache/llm/`; with `AA_GATE_OFFLINE=1` an uncached call raises instead of calling the API. Fitted models are cached in `cache/models/`; delete them after changing a setting.
+Every LLM call is cached in `cache/llm/`; with `AA_GATE_OFFLINE=1` an uncached call raises instead of calling the API. Fitted models are cached in `cache/models/`; delete them after changing a setting.
 
 ## Figures
 
