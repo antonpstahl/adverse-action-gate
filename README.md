@@ -5,7 +5,7 @@ A checked assistant for adverse-action reasons. An LLM answers a declined applic
 ## Layout
 
 | File | Does |
-|---|---|---|
+|---|---|
 | `src/aa_gate/settings.py` | Seeds, approval rate, blocks, monotone constraints, models, the scorer, prices, paths |
 | `src/aa_gate/data.py` | Load TaiwanCredit without SEX, MARRIAGE, AGE, EDUCATION; split; kinds of payment status |
 | `src/aa_gate/model.py` | Fit the constrained EBM and XGBoost; risk, log-odds, cutoff, cut points |
