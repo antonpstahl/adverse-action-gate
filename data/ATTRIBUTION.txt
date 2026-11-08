@@ -1,0 +1,4 @@
+taiwan_credit.xls is the "Default of Credit Card Clients" dataset as published by the UCI Machine Learning
+Repository (dataset 350): Yeh, I-Cheng (2009), https://doi.org/10.24432/C55S3H. It is licensed under the Creative
+Commons Attribution 4.0 International license (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/) and is
+included here unchanged. SEX, MARRIAGE and AGE are dropped when the data are loaded (src/aa_gate/data.py).

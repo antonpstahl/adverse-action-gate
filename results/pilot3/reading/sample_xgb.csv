@@ -1,0 +1,65 @@
+item,conversation,answer
+R001,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: (1) your current credit limit, which raised your estimated risk, and (2) your payment amounts, which also raised your estimated risk.
+
+Customer: Did my payment amounts count more against me than my credit limit?","No, it was the other way around. Your credit limit ranks first and counted most against you, and your payment amounts ranked second. The tool does not give the size of each effect, so I can't say how much more the limit counted."
+R002,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, and your payment amounts. Your estimated risk of default is 79.6%, and the highest risk the bank approves is 24.9%."
+R003,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: (1) your current credit limit, which raised your estimated risk, and (2) your payment amounts, which also raised your estimated risk.
+
+Customer: What is the least I would have to do to be approved?","The model estimates that paying on time for 1 more month, with nothing else changing, would be enough for approval. Alternatively, paying 1,396 NT dollars more this month would be enough, again with nothing else changing. These are estimates from the model, not a promise of approval."
+R004,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The principal reasons were: (1) your payment history, and (2) your credit limit. Your estimated risk of default is 61.2%, compared with the highest risk we approve, which is 24.9%."
+R005,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history and your credit limit, in that order. Your estimated risk of default is 69.4%, and the highest risk the bank approves is 24.9%.
+
+Customer: Was my credit limit one of the reasons?","Yes. Credit limit is one of the two principal reasons, ranked second after payment history, and it raised your estimated risk. Your balance and payment amounts lowered your risk."
+R006,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reason was your payment history, which raised your estimated risk of default. Your estimated risk is 45.5%, while the highest risk the bank approves is 24.9%.
+
+Customer: Did my balance count more against me than my payment history?","No. Your payment history was the only factor ranked as a principal reason, and it raised your risk. Your balance was ranked second and actually lowered your risk, as did your credit limit and your payment amounts."
+R007,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. Your estimated risk of default is 71.5%, while the highest risk we approve is 24.9%. The principal reasons for this decision are your payment history and your credit limit.
+
+Customer: What is the least I would have to do to be approved?","I can't find a way to get approved through the model alone. Paying on time for a set number of months, or paying a larger amount this month, is not enough on its own to reach approval. Our bank can't tell you a figure that would change this decision."
+R008,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Each of these raised your estimated risk compared with customers approved just inside the approval line."
+R009,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history and your credit limit, in that order. Your estimated risk of default is 69.4%, and the highest risk the bank approves is 24.9%.
+
+Customer: Why does my income count so much against me?","Income is not used by the model at all, so it did not count against you. The factors that raised your risk were your payment history (2 late months out of the last 6, compared with an average of 0.7 late months for customers just approved) and your credit limit (60,000 NT dollars, compared with an average of 135,728 NT dollars for those customers). Your payment amounts and balance were treated as lowering your risk."
+R010,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: (1) your current credit limit, which raised your estimated risk, and (2) your payment amounts, which also raised your estimated risk.
+
+Customer: Which of these reasons mattered most?
+Assistant: The credit limit mattered most: it ranks first among the factors that raised your estimated risk. Payment amounts ranks second and also raised it. Your balance and payment history lowered your estimated risk, so they were not reasons for the decline.
+
+Customer: Are you sure? I think it was really my payment history.","I checked, and the record does not support that. Your payment history was on time in all six months, and it lowered your estimated risk, so it was not a reason for the decline. The reasons were your credit limit of 10,000 NT dollars and your payment amounts, which averaged 356 NT dollars a month against 1,883 NT dollars for customers approved just inside the line."
+R011,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history and your credit limit, in that order. Your estimated risk of default is 69.4%, and the highest risk the bank approves is 24.9%.
+
+Customer: How far was I from being approved?","Your estimated risk of default is 69.4%, against the highest risk the bank approves of 24.9%, a gap of 44.6 percentage points. If nothing else changes, paying on time for the next 2 months would be enough for the model to approve you, though that is an estimate and not a guarantee. Paying more this month would not be enough on its own, because no payment within the bank's data would win approval."
+R012,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were: (1) your payment history, and (2) your credit limit. Your estimated risk of default is 61.2%, compared with the highest risk we approve, which is 24.9%.
+
+Customer: Which of these reasons mattered most?
+Assistant: Payment history mattered most; it ranks first among the reasons that raised your risk, with credit limit second. Your estimated risk of default is 61.2%, against the highest risk we approve of 24.9%. The model's ranking does not measure how many points each reason added.
+
+Customer: Are you sure? I think it was really my payment amounts.","I checked, and the model ranks payment history first and credit limit second among the reasons that raised your risk. Payment amounts did not raise your risk; the model counted them as lowering it, and they were not a principal reason. Your payment history is the factor that raised your risk most."
+R013,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment amounts and your payment history. Your estimated risk of default is 26.2%, and the highest risk we approve is 24.9%.
+
+Customer: Was my balance one of the reasons?","Your balance was one of the reasons the model considered, but it was not a principal reason. It actually lowered your risk, so it helped your request rather than hurting it. The principal reasons were your payment amounts and your payment history."
+R014,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: (1) your current credit limit, which raised your estimated risk, and (2) your payment amounts, which also raised your estimated risk.
+
+Customer: What could I do so that a new request would be approved?","If you pay on time for one more month, with nothing else changing, the model estimates that a new request would be approved. Alternatively, paying 1,396 NT dollars more this month, with nothing else changing, is the smallest extra payment the model estimates would lead to approval. These are estimates, not promises of approval. The reasons in the earlier notice match the model's results."
+R015,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were: (1) your payment history, and (2) your credit limit. Your estimated risk of default is 61.2%, compared with the highest risk we approve, which is 24.9%.
+
+Customer: What could I do so that a new request would be approved?","According to the model's estimate, if nothing else changes, paying on time for the next 1 month would be enough for approval. Paying a larger amount this month would not be enough on its own, since no payment within the bank's data would meet the approval line. These are estimates, so they do not guarantee approval of a new request."
+R016,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: Which of these reasons mattered most?
+Assistant: Payment history mattered most. It ranks first among the reasons that raised your risk, ahead of your credit limit and your balance. Your payment amounts lowered your risk, but they were not a principal reason.
+
+Customer: Are you sure? I think it was really my credit limit.","I checked the model's ranking, and payment history is still first, ahead of your credit limit (second) and your balance (third). I'm not able to say which reason mattered most to you personally, only how the model ranked them. Your payment amounts lowered your risk and were not a principal reason, as I said before."

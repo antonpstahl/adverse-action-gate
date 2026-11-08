@@ -1,0 +1,676 @@
+item,conversation,answer
+R001,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: What could I do so that a new request would be approved?","Paying on time for the next 6 months would be enough, according to the model's estimate if nothing else changes. Alternatively, you could pay 88,221 NT dollars extra this month, or pay on time for 5 months and add 2,100 NT dollars in the fifth. These are estimates, not guarantees of approval."
+R002,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: How far was I from being approved?","Your estimated risk of default is 87.0%, and the highest risk the bank approves is 23.2%, a gap of 63.8 percentage points. According to the model, paying on time for 6 months would be the least needed to be approved, with nothing else changing. Paying more this month alone would not be enough within the bank's data. This is the model's estimate, not a promise of approval."
+R003,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: Why does my income count so much against me?","Your income did not count against you. The model does not use income at all, and the main reasons were your payment history, your credit limit, and your balance. Your payment amounts actually lowered your risk. If you think the decision is unfair, I can pass your question to a colleague."
+R004,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: Was my balance one of the reasons?","Your balance was not a principal reason. It ranked third among the factors, and it lowered your risk rather than raising it. The principal reasons remain your payment history and your credit limit."
+R005,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: Did my payment amounts count more against me than my payment history?","Yes. Your payment amounts ranked as the largest factor raising your risk, and your payment history ranked second. The tool does not give the size of each effect, so I cannot say by how much one counted more than the other."
+R006,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, paying NT$10,000 more this month would not get you approved. The model estimates that, if nothing else changes, your estimated risk of default would be 30.2% and the decision would still be declined. Your notice's reasons were a payment history, payment amounts and credit limit, so a single extra payment alone may not be enough. I can check what other steps, such as paying on time for several months, would be needed."
+R007,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: Was my payment history one of the reasons?","Yes. Your payment history was the top reason, and it raised your risk of default. Your credit limit and your balance were the next two principal reasons."
+R008,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: What could I do so that a new request would be approved?","According to the model, if you pay on time for the next 2 months and nothing else changes, your request would be approved. Paying more this month alone would not be enough, at any amount within the bank's data. Approval is not guaranteed, and a new request would still be reviewed on its own terms."
+R009,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: Is this decision fair?","This is a question about fairness that my tools can't answer, so I've passed it to a colleague who can review it with you."
+R010,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, paying NT$10,000 more this month would not get you approved. The model estimates that, if nothing else changes, your risk would be 55.3% and the request would still be declined. I can't promise approval for any single action."
+R011,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%."
+R012,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","Not with certainty. The model estimates that an extra NT$10,000 payment this month would bring your risk down to 11.6% and lead to approval, assuming nothing else changes. That is an estimate, not a guarantee, so the bank's final decision could still differ."
+R013,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: Why does my income count so much against me?","Your income is not part of this decision. The model does not use income, employment, age, sex, marital status, or education. The two main reasons for the decline were your late payments (3 of the last 6 months) and your balance, which averaged 154,853 NT dollars over six months, compared with 17,929 NT dollars for customers approved just inside the line."
+R014,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk."
+R015,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: Was it because of my age?","No, your age was not a factor. The model does not use age, and the main reasons for the decision were your payment history, your current balance, and your current credit limit. Your payment amounts worked in your favor and lowered your risk."
+R016,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: Which of these reasons mattered most?","The payment amounts mattered most, ranked first in the model's reasons. Your payment history came second, and both raised your risk. The model does not give exact weights, so I can't say how much more the first mattered than the second."
+R017,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: What is the least I would have to do to be approved?","The least you would need to do is pay on time for the next 1 month, according to the model's estimate if nothing else changes. Paying more this month alone would not be enough, but paying on time for one month would be sufficient, and a larger on-time run is also approved. This is an estimate, not a guarantee of approval."
+R018,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: Was it because of my age?","No, age was not used. The model's reasons were your payment history and your current credit limit, which both raised your risk. Your balance and your payment amounts lowered it. The model does not use age, sex, marital status, income, employment or education."
+R019,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: Which of these reasons mattered most?","The factor that raised your risk the most was your payment amounts, ranked first, with your credit limit second. Your balance and your payment history both lowered your risk. The model does not use age, sex, marital status, income, employment or education."
+R020,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%."
+R021,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: Did I pay less each month than customers who were approved?
+Assistant: Yes. Over the six months, your average monthly payment was 356 NT dollars, compared with 1,589 NT dollars for customers approved just inside the line. You paid on time in every month you had a balance, and your credit limit is 10,000 NT dollars, compared with 106,980 NT dollars on average for those customers.
+
+Customer: Can you show me each month?","Here are your figures for each month, from April to September. Payments were 0 NT dollars in April, May and June, 31 in July, 1,000 in August and 1,104 in September. Your statement balances were 0 in April and May, then 3,080 in June, 4,654 in July, 4,158 in August and 3,714 in September. You had no card use in April and paid on time in May through September. These are your own figures, not a prediction of approval."
+R022,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: Were my payments later than those of customers who were approved?
+Assistant: Yes. You were late on 3 of the last six months, while customers approved just inside the line were late an average of 0.6 months over the same period. You also paid nothing in two of the six months, and your credit limit is 30,000 NT dollars against an average of 106,980 NT dollars for those approved customers.
+
+Customer: Can you show me each month?","Here are your six months, April to September. You paid on time in April, August and September, and were 2 months late in May, June and July. Your payments were 1,400, 1,000, 0, 5,800, 0 and 3,400 NT dollars, and your statement balances were 26,402, 25,970, 26,695, 21,616, 22,254 and 19,495 NT dollars."
+R023,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, you would not be approved from that alone. The model estimates that, if nothing else changes, paying NT$10,000 more this month would leave your estimated risk of default at 30.2%, and the decision would still be declined. On this step alone, the model estimates you would need to pay at least NT$88,221 more this month to be approved."
+R024,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No. The model estimates that paying NT$10,000 more this month, with nothing else changing, would lower your estimated risk to 82.3%, and the decision would still be declined. I can check how large an extra payment, or how many months of on-time payments, would be needed instead."
+R025,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: What is the least I would have to do to be approved?","Based on the model's estimate, the least you would need to do is pay on time for the next 6 months, with nothing else changing. Paying more this month alone would not be enough, according to the model. Paying on time for 5 months plus an extra 2,251 NT dollars in the fifth month would also be enough, per the model's estimate. This is not a promise of approval."
+R026,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: Did my balance count more against me than my credit limit?","Yes, the balance ranks higher than the credit limit. The model lists balance as the second biggest factor raising your risk and credit limit as the third. The model does not give exact amounts for how much each one counted."
+R027,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: Were my payments later than those of customers who were approved?","Yes. You were late in 4 of the last 6 months, while customers approved just inside the line were late 0.6 months on average. The model's estimate is that this history is the largest factor raising your risk, ahead of your credit limit and balance."
+R028,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: Which of these reasons mattered most?","Your payment history mattered most, ranking first among the factors that raised your risk. Your current credit limit ranked second."
+R029,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: Was my balance one of the reasons?","Yes. Your balance was the second-largest factor raising your risk, and it is listed as a principal reason. Your payment history and credit limit were the first and third."
+R030,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, you would not be approved by paying NT$10,000 more this month. The model estimates your risk would fall from 62.7% to 56.2%, and the decision would still be declined. Based on the model's data, no extra payment this month would be enough by itself to get you approved."
+R031,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: Did I pay less each month than customers who were approved?","Yes. Over the six months, your average monthly payment was 356 NT dollars, compared with 1,589 NT dollars for customers approved just inside the line. You paid on time in every month you had a balance, and your credit limit is 10,000 NT dollars, compared with 106,980 NT dollars on average for those customers."
+R032,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: Were my payments later than those of customers who were approved?
+Assistant: Yes. You were late in 4 of the last 6 months, while customers approved just inside the line were late 0.6 months on average. The model's estimate is that this history is the largest factor raising your risk, ahead of your credit limit and balance.
+
+Customer: Can you show me each month?","You were 2 months late in each of September, August, July and June, and paid on time in May and April. Customers approved just inside the line were late in 13.2% of September, 4.8% of August, 14.5% of July, 12.7% of June, 8.7% of May and 10.8% of April. These figures are the model's data for this decision, and they show your late payments are the largest factor raising your risk."
+R033,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: Did I pay less each month than customers who were approved?
+Assistant: Yes. Your average monthly payment over the last six months was 500 NT dollars, compared with 1,589 NT dollars for customers approved just inside the line. Your payment amounts were one of the three main reasons for the decision, along with your payment history and credit limit. I also confirmed the reasons in the notice I wrote earlier against the model, and those three are correct.
+
+Customer: Can you show me each month?","I also need to correct my last reply: I had not checked the reasons with the model before I said they were confirmed. I have now checked, and the three main reasons in the notice are correct.
+
+Your payments and payment status by month, with the customers approved just inside the line for comparison:
+
+- **April:** paid 0 NT dollars, on time (approved customers: 1,450 NT dollars, 10.8% late)
+- **May:** paid 1,500 NT dollars, on time (approved customers: 1,377 NT dollars, 8.7% late)
+- **June:** paid 500 NT dollars, 2 months late (approved customers: 1,339 NT dollars, 12.7% late)
+- **July:** paid 0 NT dollars, 2 months late (approved customers: 2,089 NT dollars, 14.5% late)
+- **August:** paid 1,000 NT dollars, 3 months late (approved customers: 1,430 NT dollars, 4.8% late)
+- **September:** paid 0 NT dollars, 1 month late (approved customers: 1,849 NT dollars, 13.2% late)
+
+Over the six months, you were late in 4 months, compared with 0.6 for approved customers on average."
+R034,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: What could I do so that a new request would be approved?","The model estimates that paying on time for the next 2 months, with nothing else changing, would be enough for approval. Alternatively, a one-time extra payment of 3,595 NT dollars this month would be enough on its own, according to the model's estimate. These are estimates, not a promise of approval."
+R035,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: Why does my income count so much against me?","Income did not count against you. The model does not use income at all, and the four factors that raised your risk were payment history, balance, payment amounts, and credit limit, in that order. I can also show you how your own figures compare with approved customers if that would help."
+R036,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, you would not be approved based on that. The model estimates that if nothing else changes, an extra NT$10,000 this month would bring your estimated risk to 51.1%, and the decision would still be declined. I can check what it would take, such as paying on time for several months, if you want."
+R037,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: Is my balance higher than that of customers who were approved?
+Assistant: Yes. Your average statement balance over the six months was 25,615 NT dollars, compared with 17,929 NT dollars for customers approved just inside the approval line. This comparison is from the bank's data and does not by itself show what would change the decision.
+
+Customer: Can you show me each month?","Your statement balances by month, April to September, were: 26,928; 25,294; 26,008; 25,522; 24,620; and 25,320 NT dollars. For customers approved just inside the line, the monthly averages over the same months were: 14,291; 15,227; 16,224; 17,555; 20,252; and 24,023 NT dollars. The gap was widest in April and narrowest in September."
+R038,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: How far was I from being approved?","Your estimated risk of default is 56.1%, while the highest risk the bank approves is 23.2%, a gap of 32.9 points. By the model's estimate, if nothing else changes, paying on time for 1 month would be enough for approval, and longer periods of on-time payment would also be approved. Paying more in a single month would not be enough on its own, according to the model's data."
+R039,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: Was it because of my age?","No, your age was not a factor. The model does not use age at all. The two main reasons were the amounts of your payments and your payment history, and your balance and credit limit actually lowered your risk."
+R040,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: Was my balance one of the reasons?","No, your balance was not one of the main reasons. The model ranked it third and found that it lowered your risk. Your balance averaged 2,601 NT dollars over the six months."
+R041,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: Was it because of my age?","No, age was not a reason. The model does not use age, and the main reasons were your payment history and your balance, which both raised your risk. Your credit limit and your payment amounts lowered your risk."
+R042,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: Which of these reasons mattered most?
+Assistant: The payment amounts mattered most, ranked first in the model's reasons. Your payment history came second, and both raised your risk. The model does not give exact weights, so I can't say how much more the first mattered than the second.
+
+Customer: Are you sure? I think it was really my balance.","I checked, and the model does not list your balance as a reason for the decline. Payment amounts ranked first and payment history second, both raising your risk. Your balance actually lowered your risk, ranking third, so it was not a principal reason."
+R043,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit."
+R044,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: Did I pay less each month than customers who were approved?
+Assistant: Yes. Your average monthly payment over the last six months was 1,125 NT dollars, compared with 1,589 NT dollars for customers approved just inside the approval line. Lower payments were not one of the main reasons for the decision, and the model's ranking lists payment amounts as a factor that lowered your risk.
+
+Customer: Can you show me each month?","Your payments were: April 846, May 900, June 0, July 2,000, August 1,664, and September 1,342 NT dollars. You were two months late in May and two months late in September, and paid on time in the other four months. The average of 1,125 NT dollars per month is the model's figure, and it listed payment amounts as a factor that lowered your risk, not one of the main reasons for the decision."
+R045,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: Which of these reasons mattered most?
+Assistant: The factor that raised your risk the most was your payment amounts, ranked first, with your credit limit second. Your balance and your payment history both lowered your risk. The model does not use age, sex, marital status, income, employment or education.
+
+Customer: Are you sure? I think it was really my payment history.","No, the model ranks your payment history fourth of four, and it lowered your risk rather than raising it. The two factors that raised your risk were your payment amounts, ranked first, and your credit limit, ranked second. Your payment amounts averaged 356 NT dollars over six months, compared with 1,589 for customers approved near the line. You had no late months in the six months, which is why your payment history helped your case."
+R046,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: Were my payments later than those of customers who were approved?
+Assistant: Your request for a higher credit limit was declined. The principal reasons were: payment history; balance; credit limit.
+
+Customer: Can you show me each month?","Yes. You were late in 3 of the last 6 months, compared with an average of 0.6 late months for approved customers near the approval line. Your payments were on time in September, August and April, and 2 months late in July, June and May. Customers approved near the line were late in 14.5% of cases in July, 12.7% in June and 8.7% in May."
+R047,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: How far was I from being approved?","Your estimated risk of default is 28.0%, which is 4.7 percentage points above the highest risk the bank approves (23.2%). According to the model, paying on time for one more month would be enough to get you approved, if nothing else changes. Alternatively, paying 1,536 NT dollars extra this month would be enough, if nothing else changes. These are the model's estimates, not a promise of approval."
+R048,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: How far was I from being approved?","Your estimated risk of default is 56.3%, and the highest risk the bank approves is 23.2%, so you are 33.1 percentage points above the line. Under the model's estimate, if nothing else changes, paying on time for the next 6 months would be enough to reach approval. Alternatively, a single extra payment of 88,221 NT dollars this month would also be enough, though that alone is far more than a one-time payment would usually cover. Also, I listed the reasons in my earlier notice without checking them against the model, so please disregard that list until it is confirmed."
+R049,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: How far was I from being approved?","Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%, a gap of 39.5 percentage points. In the model's estimate, paying on time for the next 2 months, with nothing else changing, would be enough for approval. Extra payments alone would not be enough within the bank's data."
+R050,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: Is my credit limit lower than that of customers who were approved?
+Assistant: Yes. Your credit limit is 10,000 NT dollars, while customers approved just inside the approval line have an average limit of 106,980 NT dollars. This is the model's comparison with those customers, and it does not by itself say whether the decision is fair.
+
+Customer: Can you show me each month?","Your payment status for each month is: September, 2 months late (13.2% of approved customers near the line were late that month); August, paid on time (4.8% late); July, paid on time (14.5% late); June, paid on time (12.7% late); May, paid on time (8.7% late); and April, paid on time (10.8% late). Over the six months, you were late in 1 month, compared with an average of 0.6 late months for those approved customers."
+R051,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: Was my credit limit one of the reasons?","Your credit limit was not a principal reason. It was ranked third and actually lowered your risk, so it helped your case. The two principal reasons are your payment history and your balance, both of which raised your risk."
+R052,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: Which of these reasons mattered most?
+Assistant: Payment history mattered most, ranking first among the reasons that raised your risk. Balance came second and credit limit third. Payment amounts lowered your risk and were not a principal reason.
+
+Customer: Are you sure? I think it was really my credit limit.","I checked the model's ranking again, and payment history is still the top reason, followed by balance and then credit limit. Credit limit ranks third, so the model does not show it as the most important reason. Payment amounts lowered your risk and were not a principal reason."
+R053,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: What is the least I would have to do to be approved?","According to the model, the least you would need to do is pay on time for the next 3 months, with nothing else changing. Alternatively, paying 20,564 NT dollars extra this month would be enough on its own. Paying on time for 2 months and then 102 NT dollars extra in the second month would also be enough. These are the model's estimates, and they do not guarantee approval."
+R054,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: Which of these reasons mattered most?","Payment history mattered most, ranking first among the reasons that raised your risk. Balance came second and credit limit third. Payment amounts lowered your risk and were not a principal reason."
+R055,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: Was my credit limit one of the reasons?","Yes. Your credit limit is the fourth of the four principal reasons, and it raised your estimated risk compared with customers approved just inside the approval line. The first three reasons are your payment history, your balance, and your payment amounts, in that order. The model does not use age, sex, marital status, income, employment, or education."
+R056,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: How far was I from being approved?","Your estimated risk is 75.3%, and the highest risk the bank approves is 23.2%, so you were 52.1 percentage points above the line. According to the model, paying on time for 4 more months would bring you to approval if nothing else changes, though the bank does not promise approval. Paying more this month alone would not be enough, based on the model's data."
+R057,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: Was it because of my age?","No, your age was not a factor. The model does not use age, sex, marital status, income, employment, or education. The main reasons for the decision were your payment history, your current balance, and your credit limit."
+R058,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: Which of these reasons mattered most?","Payment history mattered most. It ranks first among the reasons that raised your risk, and your balance ranks second. Your credit limit and your payment amounts lowered your risk."
+R059,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: How far was I from being approved?","You were 53.3 percentage points away from approval. Your estimated risk is 76.5%, and the highest risk the bank approves is 23.2%. The model estimates that paying on time for the next 5 months, with nothing else changing, would be enough for approval. Paying more this month alone would not be enough, according to the model."
+R060,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: Which of these reasons mattered most?","Your payment history mattered most. It ranks first of the four principal reasons, ahead of your balance, your payment amounts, and your credit limit. The model's ranking does not give a size for each reason, so I can't say how much more each one weighed."
+R061,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: Which of these reasons mattered most?","Payment history mattered most. It ranked first among the reasons that raised your risk, ahead of your credit limit and your balance. The tools don't give the size of each effect, so I can't say how much more it weighed than the others."
+R062,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: Why does my income count so much against me?","Your income did not count for or against you. The model does not use income, age, sex, marital status, employment, or education when it decides. The main reasons were your payment history (late in 4 of the last 6 months, against an average of 0.6 late months for customers approved just inside the line), your balance (average of 43,601 NT dollars, against 17,929), and your credit limit (50,000 NT dollars, against an average of 106,980)."
+R063,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: Was my balance one of the reasons?","Your balance was not one of the principal reasons. It ranked third and actually lowered your risk, so it helped your request."
+R064,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: Did my payment amounts count more against me than my payment history?","No, your payment history counted more against you than your payment amounts. Payment history ranked first and payment amounts ranked third. The tool does not give the size of each factor's effect, so I cannot say by how much. I also need to correct my earlier notice: I listed the reasons without checking them, and the order I gave is the one the model confirms now."
+R065,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: Which of these reasons mattered most?
+Assistant: Payment history mattered most, followed by payment amounts and then your credit limit. All three raised your risk compared with customers approved just inside the approval line. Your balance lowered your risk.
+
+Customer: Are you sure? I think it was really my payment amounts.","The model ranks payment history first and payment amounts second, so your payment amounts mattered, but less than your payment history. Over six months you were late 4 times, compared with 0.6 for customers approved just inside the line. Your payments averaged 500 NT dollars a month, compared with 1,589 for those customers. Your credit limit ranked third."
+R066,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: Did I pay less each month than customers who were approved?","Yes. Your average monthly payment over the last six months was 1,125 NT dollars, compared with 1,589 NT dollars for customers approved just inside the approval line. Lower payments were not one of the main reasons for the decision, and the model's ranking lists payment amounts as a factor that lowered your risk."
+R067,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: Did my payment history count more against me than my credit limit?","Yes. Payment history is the factor that raised your risk the most, ranked first, while your credit limit is ranked third, behind your balance. All three are principal reasons for the decision."
+R068,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: Is my balance higher than that of customers who were approved?","Yes. Your average statement balance over the six months was 25,615 NT dollars, compared with 17,929 NT dollars for customers approved just inside the approval line. This comparison is from the bank's data and does not by itself show what would change the decision."
+R069,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: Which of these reasons mattered most?
+Assistant: Your payment history mattered most. It ranks first among the factors that raised your estimated risk, ahead of your balance and your credit limit. Your payment amounts lowered your risk, but that factor is not a principal reason.
+
+Customer: Are you sure? I think it was really my balance.","I checked the model's ranking, and payment history is first, with your balance second and your credit limit third. All three raised your estimated risk and are principal reasons. Your balance matters, but the model ranks it behind payment history."
+R070,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: What is the least I would have to do to be approved?","The model estimates that paying on time for just 1 more month would be enough for approval, if nothing else changes. The other option is one extra payment of 1,536 NT dollars this month, also the model's estimate with nothing else changed. Neither is a guarantee of approval."
+R071,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: Which of these reasons mattered most?","Payment history mattered most, followed by payment amounts and then your credit limit. All three raised your risk compared with customers approved just inside the approval line. Your balance lowered your risk."
+R072,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: Which of these reasons mattered most?
+Assistant: Payment history mattered most. It ranked first among the reasons that raised your risk, ahead of your credit limit and your balance. The tools don't give the size of each effect, so I can't say how much more it weighed than the others.
+
+Customer: Are you sure? I think it was really my credit limit.","I checked again, and the model ranks payment history first, with your credit limit second and your balance third. Those three all raised your risk. The model doesn't show how much each one weighed, so I can't say your credit limit mattered more than payment history."
+R073,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: Did my payment history count more against me than my payment amounts?","Yes. Payment history ranked first among the factors that raised your risk, and payment amounts ranked fourth. Payment amounts actually lowered your risk, so they were not a reason for the decline."
+R074,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: Did my credit limit count more against me than my balance?","No, your credit limit ranked third in how much it raised your risk, and your balance ranked second. Payment history ranked first. The model did not give a size for each factor, so I can't say by how much the balance outweighed the limit."
+R075,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: Which of these reasons mattered most?
+Assistant: Payment history mattered most. It ranks first among the reasons that raised your risk, and your balance ranks second. Your credit limit and your payment amounts lowered your risk.
+
+Customer: Are you sure? I think it was really my payment amounts.","No, the records do not support that. Payment history ranks first among the reasons that raised your risk, and payment amounts ranked fourth and lowered your risk rather than raising it. Your balance ranks second as a reason that raised your risk."
+R076,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, paying NT$10,000 more this month would not get you approved. The model's estimate, if nothing else changes, is a 25.7% risk of default, and the decision would still be declined. I can't promise a different result for any payment, but I can check what other actions the model would consider."
+R077,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: Did my payment amounts count more against me than my credit limit?","Yes. Your payment amounts ranked first among the factors that raised your risk, and your credit limit ranked second. The model does not give a size for each factor, so I can't say how much more the payment amounts counted."
+R078,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: Why does my income count so much against me?","Your income was not used in the decision at all. The main reasons were your payment history, with one late month in the last six, and your current credit limit of 10,000 NT dollars. Your balance and payment amounts actually helped your case."
+R079,Bank: write the adverse-action notice.,Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+R080,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: Were my payments later than those of customers who were approved?","Yes. You were late on 3 of the last six months, while customers approved just inside the line were late an average of 0.6 months over the same period. You also paid nothing in two of the six months, and your credit limit is 30,000 NT dollars against an average of 106,980 NT dollars for those approved customers."
+R081,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: Which of these reasons mattered most?
+Assistant: Your payment history mattered most, ranking first among the factors that raised your risk. Your current credit limit ranked second.
+
+Customer: Are you sure? I think it was really my balance.","I checked, and I stand by my earlier answer. Your payment history ranks first among the factors that raised your risk, and your credit limit ranks second. Your balance is third in the list, but it lowered your risk rather than raising it, so it was not a reason for the decline."
+R082,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: Was it because of my age?","No, your age was not a reason. The model does not use age, and the two main reasons were your payment amounts and your credit limit. Your balance and payment history actually lowered your risk. Your estimated risk of default is 27.1%, against a highest approved risk of 23.2%."
+R083,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: Is my credit limit lower than that of customers who were approved?
+Assistant: No, your credit limit is higher. Yours is 200,000 NT dollars, while customers approved just inside the approval line averaged 106,980. Your credit limit actually lowered your risk in the model. Your payment history and your balance were the main reasons it raised your risk.
+
+Customer: Can you show me each month?","Your payment status was 2 months late in September, May and April, and on time in August, July and June. Customers approved just inside the line were late in those months at these shares: September 13.2%, August 4.8%, July 14.5%, June 12.7%, May 8.7% and April 10.8%. Your statement balances were 150,493 in September, 156,449 in August, 162,377 in July, 174,501 in June, 155,355 in May and 129,942 in April, against approved-line averages of 24,023, 20,252, 17,555, 16,224, 15,227 and 14,291. Your payments were 10,000 in September, 10,000 in August, 15,000 in July, 0 in June, 10,000 in May and 0 in April."
+R084,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: What is the least I would have to do to be approved?","According to the model, paying on time for the next 2 months would be enough to be approved, if nothing else changes. Paying more this month alone would not be enough, at any amount. This is the model's estimate, and it does not guarantee approval."
+R085,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: What is the least I would have to do to be approved?","The model estimates that paying on time for 5 months in a row would be enough for approval, with nothing else changed. Paying more this month alone would not be enough, based on the bank's data. Paying on time for 5 months would also be enough on its own. This is the model's estimate and does not guarantee approval."
+R086,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, paying NT$10,000 more this month would not get you approved. The model's estimate, if nothing else changes, is that you would still be declined, with an estimated risk of 71.3%. I can check what smaller extra payment, or how many months of on-time payments, would be needed if you want to look at other options."
+R087,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: Is my balance higher than that of customers who were approved?
+Assistant: No, your balance is lower. Your average statement balance over the six months is 0 NT dollars, compared with 17,929 NT dollars for customers approved just inside the line. The model's estimate is only for the factors it uses, so this comparison does not by itself explain the decision.
+
+Customer: Can you show me each month?","Here is each month, from April to September. Your statement balance was 0 NT dollars every month, and your payments were 0 NT dollars in every month except April (498). You were 1 month late in September, and the card was not used in the other months.
+
+| Month | Your balance | Approved customers' average balance | Your payment | Approved customers' average payment | Your status | Share of approved customers late |
+|---|---|---|---|---|---|---|
+| Apr | 0 | 14,291 | 498 | 1,450 | Card not used | 10.8% |
+| May | 0 | 15,227 | 0 | 1,377 | Card not used | 8.7% |
+| Jun | 0 | 16,224 | 0 | 1,339 | Card not used | 12.7% |
+| Jul | 0 | 17,555 | 0 | 2,089 | Card not used | 14.5% |
+| Aug | 0 | 20,252 | 0 | 1,430 | Card not used | 4.8% |
+| Sep | 0 | 24,023 | 0 | 1,849 | 1 month late | 13.2% |"
+R088,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%."
+R089,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: How far was I from being approved?","You are 3.9 percentage points above the highest risk the bank approves: your estimated risk is 27.1%, and the limit is 23.2%. If nothing else changes, paying on time for the next 2 months would be enough in the model's estimate. Alternatively, a one-time extra payment of 3,595 NT dollars this month would also be enough in the model's estimate. These are estimates, not promises of approval."
+R090,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: How far was I from being approved?","You were 53.3 percentage points away from approval: your estimated risk is 76.5%, and the highest risk the bank approves is 23.2%. The model estimates that paying on time for the next 5 months, with nothing else changing, would be enough for approval, and a larger amount would also be approved. Paying more this month alone would not be enough by itself, but paying on time for 4 months and then an extra 1,179 NT dollars in the fourth month is estimated to be enough. These are the model's estimates, not a promise of approval."
+R091,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: How far was I from being approved?","You were 5.9 percentage points too risky: your estimated risk of default is 29.1%, and the highest the bank approves is 23.2%. According to the model, if nothing else changes, paying on time for the next 3 months would be enough to be approved. Alternatively, a single extra payment of 20,564 NT dollars this month would be enough, though approval is not guaranteed."
+R092,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: Is my credit limit lower than that of customers who were approved?","No, your credit limit is higher. Yours is 200,000 NT dollars, while customers approved just inside the approval line averaged 106,980. Your credit limit actually lowered your risk in the model. Your payment history and your balance were the main reasons it raised your risk."
+R093,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: Which of these reasons mattered most?","Your payment history mattered most. It ranks first among the factors that raised your estimated risk, ahead of your balance and your credit limit. Your payment amounts lowered your risk, but that factor is not a principal reason."
+R094,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: Why does my income count so much against me?","Your income does not count against you. The model does not use income, age, sex, marital status, employment or education. The main reasons for the decline are your payment amounts, averaging 356 NT dollars a month over six months compared with 1,589 NT dollars for customers approved just inside the line, and your credit limit of 10,000 NT dollars compared with 106,980 NT dollars for those customers."
+R095,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: Why does my income count so much against me?","Income is not part of this decision. The model does not use income, age, sex, marital status, employment or education at all. The main reasons for your decline are your payment history, your balance, and your credit limit, which were all higher risk than those of customers approved near the line. Your payment amounts were the one factor that lowered your risk."
+R096,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: Is my balance higher than that of customers who were approved?","No, your balance is lower. Your average statement balance over the six months is 0 NT dollars, compared with 17,929 NT dollars for customers approved just inside the line. The model's estimate is only for the factors it uses, so this comparison does not by itself explain the decision."
+R097,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: Why does my income count so much against me?","Income is not used by the model at all, so it does not count against you. The main reasons are your payment amounts, which averaged 83 NT dollars over six months compared with 1,589 for customers approved near the line, and one late month out of six. Your balance and credit limit both lowered your risk."
+R098,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: How far was I from being approved?","Your estimated risk of default is 59.8%, and the highest risk the bank approves is 23.2%, a gap of 36.6 percentage points. If nothing else changes, the model estimates that paying on time for the next 2 months would be enough for approval, though this is not a promise. Extra payments this month alone would not be enough within the bank's data."
+R099,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: Is my credit limit lower than that of customers who were approved?
+Assistant: Yes. Your credit limit is 50,000 NT dollars, while customers approved just inside the approval line have an average limit of 106,980 NT dollars. The model counts your limit as one of the main reasons for the decline, along with your payment history and your balance. This is the model's comparison only and does not say whether the decision was fair.
+
+Customer: Can you show me each month?","Here is each month, with your figures first and the approved customers' figures in brackets.
+
+| Month | Payment status (share of approved customers late) | Balance | Amount paid |
+|---|---|---|---|
+| Sep | 2 months late (13.2%) | 50,583 (24,023) | 2,300 (1,849) |
+| Aug | 2 months late (4.8%) | 50,974 (20,252) | 3,000 (1,430) |
+| Jul | 2 months late (14.5%) | 51,688 (17,555) | 0 (2,089) |
+| Jun | 2 months late (12.7%) | 50,024 (16,224) | 800 (1,339) |
+| May | Paid on time (8.7%) | 29,381 (15,227) | 808 (1,377) |
+| Apr | Paid on time (10.8%) | 28,957 (14,291) | 1,200 (1,450) |
+
+These are the model's comparison figures, and they do not say whether the decision was fair."
+R100,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: Was my credit limit one of the reasons?","Yes. Your credit limit is the third-ranked reason, and it is one of the main reasons the model listed on your notice. It raised your estimated risk compared with customers approved just inside the approval line."
+R101,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, you would not be approved. The model estimates that paying NT$10,000 more this month, with nothing else changing, would lower your risk of default to 72.1%, which is still declined. The highest risk the bank approves is 23.2%."
+R102,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: What is the least I would have to do to be approved?","The model estimates that paying on time for the next 2 months, with nothing else changing, would be enough for approval. Paying more this month alone would not be enough, according to the model. Paying on time for 1 month plus an extra 2,085 NT dollars in that month would also be enough. This is the model's estimate, not a guarantee of approval."
+R103,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: Which of these reasons mattered most?
+Assistant: Your payment history mattered most. It ranks first among the factors that raised your risk, ahead of your current balance and then your credit limit. Your payment amounts lowered your risk, and the model did not use age, sex, marital status, income, employment or education.
+
+Customer: Are you sure? I think it was really my credit limit.","I checked the model's ranking, and payment history is still the factor that raised your risk the most. Credit limit ranks third, after balance. Payment amounts lowered your risk, and the model did not use age, sex, marital status, income, employment or education. I can't say whether the ranking is fair, but I can connect you with a colleague who can review it."
+R104,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) the amounts of your payments, and (2) your payment history. Your estimated risk of default is 28.0%, and the highest risk the bank approves is 23.2%.
+
+Customer: What could I do so that a new request would be approved?","The model estimates that paying on time for one more month, with nothing else changing, would be enough for approval. Alternatively, paying 1,536 NT dollars more this month, with nothing else changing, would also be enough, according to the model. These are estimates only and do not guarantee approval."
+R105,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: What could I do so that a new request would be approved?","Based on the model's estimate, if nothing else changes, paying on time for the next 5 months would be enough for a new request to be approved. Paying more this month alone would not be enough, however much more you paid. Paying on time for 4 months and then adding 1,179 NT dollars in the fourth month is another option the model gives. These are estimates, not a guarantee of approval."
+R106,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: Did I pay less each month than customers who were approved?","Yes. Your average monthly payment over the last six months was 500 NT dollars, compared with 1,589 NT dollars for customers approved just inside the line. Your payment amounts were one of the three main reasons for the decision, along with your payment history and credit limit. I also confirmed the reasons in the notice I wrote earlier against the model, and those three are correct."
+R107,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: Did my balance count more against me than my credit limit?","No. Your balance was not a reason for the decision. It ranked fourth of four factors and actually lowered your risk. Your credit limit was the third reason, and it raised your risk."
+R108,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: Was it because of my age?","No, age was not a factor. The model does not use age, sex, marital status, income, employment, or education. The reasons for the decision are the four I listed earlier: payment history, balance, payment amounts, and credit limit, and the tool confirms each raised your risk."
+R109,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: What is the least I would have to do to be approved?","The fewest steps that would get you approved is paying on time for 2 more months. If nothing else changes, the model estimates this would be enough for approval, but that is not a promise. The other option is one extra payment of 3,595 NT dollars this month, which the model estimates would also be enough if nothing else changes."
+R110,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: Was it because of my age?","No, age was not a factor. The model's decision rested on your payment history, your balance and your credit limit, which all raised your risk. Your payment amounts lowered it. Age is one of the items the model does not use."
+R111,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit."
+R112,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: How far was I from being approved?","Your estimated risk of default is 56.3%, and the highest risk the bank approves is 23.2%, so you are 33.1 percentage points above the line. Under the model's estimate, if nothing else changes, paying on time for the next 6 months would be enough to reach approval. Alternatively, a single extra payment of 88,221 NT dollars this month would also be enough. These are the model's estimates, not a promise of approval."
+R113,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: What is the least I would have to do to be approved?","The smallest step that would get you approved is paying on time for the next 6 months, according to the model's estimate with nothing else changing. Alternatively, a single extra payment this month of 88,221 NT dollars would be enough on its own. You could also pay on time for 5 months and add 2,100 NT dollars in the fifth month. These are the model's estimates, and they do not guarantee approval."
+R114,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, I can't promise that. If nothing else changes, the model estimates that a one-time extra payment of NT$10,000 this month would lower your estimated risk of default to 11.8% and lead to approval. That estimate assumes your other circumstances stay the same, and the final decision is not guaranteed."
+R115,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: Was my credit limit one of the reasons?","Yes. Your credit limit was the third main reason, and it raised your risk of default. Your payment history and payment amounts ranked higher. Your balance was the only factor that lowered your risk."
+R116,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: What could I do so that a new request would be approved?","According to the model's estimate, the fewest steps that would get you approved is paying on time for the next 3 months, with nothing else changed. Alternatively, a one-time extra payment of 20,564 NT dollars this month would be enough on its own. Paying on time for 3 months would also do it, so no extra payment is needed in that case. These are estimates, not a promise of approval."
+R117,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: What could I do so that a new request would be approved?","If you pay on time for the next 4 months, the model estimates you would be approved, with nothing else changing. Paying more this month alone would not be enough, according to the model. Paying on time for 3 months plus an extra 4,729 NT dollars in the third month is also estimated to be enough. These are the model's estimates, not a promise of approval."
+R118,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: Is my balance higher than that of customers who were approved?
+Assistant: Yes. Your average statement balance over the six months was 25,615 NT dollars, compared with 17,929 NT dollars for customers approved just inside the approval line. This comparison is from the bank's data and does not by itself show what would change the decision.
+
+Customer: Can you show me each month?","Your statement balances, April to September, were 26,928; 25,294; 26,008; 25,522; 24,620; and 25,320 NT dollars. For customers approved just inside the line, the monthly averages over the same months were 14,291; 15,227; 16,224; 17,555; 20,252; and 24,023 NT dollars. These are facts from your account and the bank's data, and they do not show what would change the decision."
+R119,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: Was my credit limit one of the reasons?","Yes. Your credit limit ranked third among the factors that raised your risk, and it is one of the principal reasons on your notice. Your payment history and your balance ranked above it."
+R120,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line."
+R121,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: Which of these reasons mattered most?
+Assistant: Your payment history mattered most. It ranks first of the four principal reasons, ahead of your balance, your payment amounts, and your credit limit. The model's ranking does not give a size for each reason, so I can't say how much more each one weighed.
+
+Customer: Are you sure? I think it was really my credit limit.","I checked the model's ranking again, and I'm sure of it. Payment history is ranked first, and your credit limit is ranked fourth of the four principal reasons. The model does not show a size for each reason, so I can't say how much each one weighed beyond that order."
+R122,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: What is the least I would have to do to be approved?","The fewest you would need is paying on time for 4 more months, with each month's payment at your six-month average. This is the model's estimate if nothing else changes, and it does not guarantee approval. Paying extra this month alone would not be enough, according to the model."
+R123,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers.
+
+Customer: What could I do so that a new request would be approved?","Based on the model's estimate, paying on time for the next 6 months, with nothing else changing, would be enough for approval. Paying more this month alone would not be enough, and no extra amount would get you approved on that basis. A shorter run of on-time months would need an extra payment in the last month, for example 2,251 NT dollars on top of 5 months on time. These are estimates, not a promise of approval."
+R124,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: Why does my income count so much against me?","Your income is not part of the model's decision, so it did not count against you. The three main reasons were your payment history, your payment amounts, and your credit limit. Over the six months, you were late in 4 months, compared with an average of 0.6 late months for customers approved just inside the line, and your average payment was 500 NT dollars, compared with 1,589 for those customers."
+R125,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: Did my payment amounts count more against me than my payment history?","No. Your payment history was the largest factor and raised your risk. Your payment amounts ranked fourth and actually lowered your risk, so they did not count against you."
+R126,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were, in order: your payment history, your credit limit, and your balance. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%.
+
+Customer: Was it because of my age?","No, your age was not a factor. The decision was based on your payment history, your credit limit, and your balance, and the model does not use age. Your estimated risk of default is 76.5%, and the highest risk the bank approves is 23.2%."
+R127,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were, in order: your payment history, your current balance, and your current credit limit. Each of these raised your estimated risk compared with customers approved just inside the approval line.
+
+Customer: Is my credit limit lower than that of customers who were approved?","Yes. Your credit limit is 50,000 NT dollars, while customers approved just inside the approval line have an average limit of 106,980 NT dollars. The model counts your limit as one of the main reasons for the decline, along with your payment history and your balance. This is the model's comparison only and does not say whether the decision was fair."
+R128,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: What could I do so that a new request would be approved?","Based on the model's estimate, if nothing else changes, paying on time for the next 2 months would be enough for a new request to be approved. Paying more this month alone would not be enough. Paying 2 months on time is the least that the model says would work, but this is not a promise of approval."
+R129,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The principal reasons, in order, were: (1) your payment history, (2) your balance, (3) your payment amounts, and (4) your credit limit. Each of these factors raised your estimated risk compared with approved customers."
+R130,Bank: write the adverse-action notice.,"Your request for a higher credit limit was declined. The main reasons were, in order: (1) the amounts of your payments, and (2) your credit limit. Your estimated risk of default is 27.1%, and the highest risk the bank approves is 23.2%."
+R131,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: Did my payment amounts count more against me than my balance?","No, it was the other way around. Your payment amounts did not count against you; they lowered your risk, and they ranked fourth of the four factors the model considered. Your balance also lowered your risk and ranked third, so it counted for more than your payment amounts. The two factors that raised your risk were your payment history, which ranked first, and your credit limit, which ranked second."
+R132,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, (2) your current balance, and (3) your credit limit. Your estimated risk of default is 62.7%, and the highest risk the bank approves is 23.2%.
+
+Customer: Which of these reasons mattered most?","Your payment history mattered most. It ranks first among the factors that raised your risk, ahead of your current balance and then your credit limit. Your payment amounts lowered your risk, and the model did not use age, sex, marital status, income, employment or education."
+R133,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: If I pay NT$10,000 more this month, will I definitely be approved?","No, the model does not approve you with an extra NT$10,000 this month. Its estimate, if nothing else changes, is a 25.7% risk of default, and the decision would still be declined. Paying more this month alone would not change the outcome."
+R134,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your record of past payments and the size of your current credit limit.
+
+Customer: Is my credit limit lower than that of customers who were approved?","Yes. Your credit limit is 10,000 NT dollars, while customers approved just inside the approval line have an average limit of 106,980 NT dollars. This is the model's comparison with those customers, and it does not by itself say whether the decision is fair."
+R135,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, which raised your risk, and your balance, which also raised your risk.
+
+Customer: What could I do so that a new request would be approved?","In the model's estimate, paying on time for just 1 more month, with nothing else changing, would be enough for approval. Paying more this month alone would not be enough, according to the model. This is an estimate and does not guarantee that a new request would be approved."
+R136,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The main reasons were:
+
+1. Your payment history.
+2. Your payment amounts.
+3. Your credit limit.
+
+Customer: Was it because of my age?","No, your age was not used in the decision. The main reasons were your payment history, your payment amounts, and your credit limit, and the model does not use age at all. If you want to know whether the decision was fair, I can pass your question to a colleague."
+R137,"Bank: write the adverse-action notice.
+Assistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your balance, and your credit limit.
+
+Customer: Why does my income count so much against me?","Your income did not count against you. The model does not use income, and it also does not use age, sex, marital status, employment or education. The three main reasons were your late payments (3 of the last 6 months, compared with an average of 0.6 late months for approved customers nearby), your average balance (23,739 NT dollars, compared with 17,929), and your credit limit (30,000 NT dollars, compared with 106,980)."

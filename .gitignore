@@ -1,0 +1,8 @@
+.venv
+.venv.nosync/
+__pycache__/
+.pytest_cache/
+.DS_Store
+.env
+cache/
+.ruff_cache/

@@ -1,0 +1,471 @@
+<title>Blind Reading Desk</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: the answer being read on the left, a sticky rail with the answers list and the guide on the right;
+   one column on phones. */
+:root {
+  --bg: #eef2f3; --surface: #ffffff; --ink: #17232a; --muted: #5a6a73; --line: #d3dde1;
+  --accent: #1b5b78; --accent-soft: #e1edf2; --claims: #1b5b78; --none: #66737b;
+  --unmap: #9a5600; --unmap-soft: #fbeedd; --ok: #2c7a4b; --error: #b3261e;
+  --font-ui: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-read: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #10171b; --surface: #172127; --ink: #e2eaee; --muted: #91a2ac; --line: #29363e;
+  --accent: #7bbfdd; --accent-soft: #1b2f39; --claims: #7bbfdd; --none: #91a2ac;
+  --unmap: #f0a64a; --unmap-soft: #362814; --ok: #6cc496; --error: #f2847b; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #10171b; --surface: #172127; --ink: #e2eaee; --muted: #91a2ac; --line: #29363e;
+  --accent: #7bbfdd; --accent-soft: #1b2f39; --claims: #7bbfdd; --none: #91a2ac;
+  --unmap: #f0a64a; --unmap-soft: #362814; --ok: #6cc496; --error: #f2847b; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font-ui); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 20px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 24px; margin-bottom: 16px; }
+.eyebrow { margin: 0; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { margin: 2px 0 0; font-size: 26px; text-wrap: balance; }
+h2 { margin: 0; font-size: 17px; }
+.progress { color: var(--muted); font-variant-numeric: tabular-nums; }
+.progress b { color: var(--ink); }
+.banner { border: 1px solid var(--unmap); background: var(--unmap-soft); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: start; }
+@media (max-width: 860px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.reading { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; min-width: 0; }
+.itemhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.timer { font: 500 13px var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+details > summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+.conversation { margin: 12px 0 18px; padding: 10px 12px; background: var(--bg); border-radius: 8px; }
+.turn { margin: 8px 0 0; font: 14px/1.5 var(--font-read); }
+.turn .who { font: 600 11px var(--font-ui); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); display: block; }
+.sentences { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.sentence { border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 8px; padding: 12px; display: grid; gap: 10px; }
+.sentence[data-kind="claims"] { border-left-color: var(--claims); }
+.sentence[data-kind="no_claim"] { border-left-color: var(--none); }
+.sentence[data-kind="unmappable"] { border-left-color: var(--unmap); background: var(--unmap-soft); }
+.sentence .text { margin: 0; font: 17px/1.55 var(--font-read); }
+.kinds { display: flex; flex-wrap: wrap; gap: 6px; }
+button, select, input { font: inherit; color: inherit; }
+button { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 5px 11px; cursor: pointer; }
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.kinds button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); font-weight: 600; }
+.kinds button[data-k="unmappable"][aria-pressed="true"] { background: var(--unmap-soft); border-color: var(--unmap); }
+.queries { display: grid; gap: 8px; }
+.query { display: grid; gap: 8px; padding: 10px; border-radius: 6px; background: var(--bg); }
+.fields { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: end; }
+.field { display: grid; gap: 2px; font-size: 12px; color: var(--muted); min-width: 0; }
+.field select, .field input { font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 5px; padding: 4px 6px; max-width: 100%; }
+.field input { width: 9.5em; }
+.parsed { font: 12px var(--font-mono); color: var(--muted); }
+.qfoot { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.link { border: 0; background: none; padding: 2px 0; color: var(--accent); text-decoration: underline; }
+.error { color: var(--error); font-size: 13px; margin: 0; }
+.actions { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-top: 18px; }
+.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; padding: 7px 16px; }
+.rail { display: grid; gap: 14px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); min-width: 0; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+.items { display: grid; grid-template-columns: repeat(auto-fill, minmax(62px, 1fr)); gap: 6px; margin-top: 10px; }
+.items button { font: 500 13px var(--font-mono); padding: 5px 0; }
+.items button.saved { border-color: var(--ok); color: var(--ok); }
+.items button[aria-current="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
+.guide { font-size: 13.5px; }
+.guide p, .guide li { margin: 6px 0; }
+.guide ul { padding-left: 18px; margin: 4px 0; }
+.guide b { font-weight: 600; }
+@media (prefers-reduced-motion: no-preference) { .sentence { transition: border-color .15s, background .15s; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">Adverse-action gate · blinded reading</p>
+      <h1>Blind Reading Desk</h1>
+    </div>
+    <div class="progress"><b id="done">0</b> of <b id="total">0</b> answers saved · <span id="saveState">Connecting…</span></div>
+  </header>
+  <div id="banner" class="banner" hidden></div>
+  <main class="grid">
+    <section class="reading" aria-labelledby="itemTitle">
+      <div class="itemhead"><h2 id="itemTitle">Answer</h2><span class="timer" id="timer" title="Reading time for this answer">0:00</span></div>
+      <details class="conversation" id="convBox" open><summary>Conversation so far</summary><div id="conv"></div></details>
+      <ol class="sentences" id="sentences"></ol>
+      <div class="actions">
+        <button id="prev" type="button">Previous answer</button>
+        <p class="error" id="saveError" hidden></p>
+        <button id="save" class="primary" type="button">Save and next</button>
+      </div>
+    </section>
+    <aside class="rail">
+      <div class="panel">
+        <h2>Answers</h2>
+        <nav class="items" id="items" aria-label="Answers to read"></nav>
+      </div>
+      <details class="panel guide" open>
+        <summary>How to read</summary>
+        <p>Read each sentence as the customer would, given the conversation, and write down what it claims. Do not check whether it is true: the model does that.</p>
+        <ul>
+          <li><b>No claim</b>: a greeting, an offer of help, advice without a stated effect, a sentence that only names the comparison group (customers approved just inside the approval line), or a caveat: figures are the model's estimates, how an estimate is made (each month at the six-month average, nothing else changing), approval is not guaranteed, or what the assistant cannot tell.</li>
+          <li><b>Claims</b>: everything the sentence says about the decision, the model or the data fits the queries. Add one query per claim and one number per query. A sentence that refers back ("that", "the earlier notice") claims what it refers to. A sentence that names the comparison group and says what a factor did claims that effect. A bare yes or no answers the customer's question: "No" to "Did X count more against me than Y?" claims that Y counted more. Alternatives joined by "or" get one query each.</li>
+          <li><b>Not expressible</b>: it says something about the decision, the model or the data that no query fits, such as "generally", "slightly", a range, a superlative over months, or something about other customers.</li>
+        </ul>
+        <p><b>Notice</b>: every factor it gives as a reason gets a Reason query, <i>raised it</i>, with its rank if the reasons come in order.</p>
+        <p><b>Numbers</b>: type them as written, for example 29.3%, 2.6 percentage points, NT$2,600 or 4. The page works out the precision.</p>
+        <p><b>Measure</b>: say whom each number is about. For money, the customer's amount (a factor: the six-month average) or the approved customers' average. For one month's payment status, its kind and the months late; the approved customers as the share who were late. For payment history, the number of late months out of six; the approved customers as their average number. Being on time or never late is 0 months late (one month: 0; all six: payment history 0); use the kind of month only for card not used, paid in full or late.</p>
+        <p><b>Reason</b>: a factor is a reason for the decline exactly when it raised the risk, so "was a reason" is <i>raised it</i> and "was not a reason" is <i>lowered it</i>. Rank 1 is the factor that raised the risk most, counting on through the factors that lowered it.</p>
+        <p><b>Least action</b>: "neither alone is enough" is <i>nothing would be enough</i> for each action. "I can't find a way to get you approved" is <i>nothing would be enough</i> for <i>both</i>, that is, not even together.</p>
+        <p><b>Action</b>: a risk given for the action under discussion is that action's new risk, not the current one.</p>
+        <p><b>Used by the model</b>: "age was not a reason" or "income did not count against you" says the model does not use it.</p>
+      </details>
+    </aside>
+  </main>
+</div>
+
+<script>
+const ITEMS = [{"item": "R002", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. Your estimated risk of default is 27.0%, above the highest risk we approve, which is 24.9%. The principal reasons were your credit limit, ranked first, and your payment amounts, ranked second. Both raised your risk compared with customers we approved.\n\nCustomer: Did I pay less each month than customers who were approved?\nAssistant: Your request for a higher credit limit was declined. The principal reasons were: credit limit; payment amounts.\n\nCustomer: Can you show me each month?", "sentences": ["Yes, you paid less each month.", "Your payments were 1,104 NT dollars in Sep, 1,000 in Aug, 31 in Jul, and 0 in Jun, May and Apr.", "Customers approved just inside the approval line paid 2,348, 2,090, 1,947, 1,850, 1,614 and 1,446 in those same months, and your six-month average was 356 NT dollars against their 1,883.", "You had no late payments in the six months."]}, {"item": "R013", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The two principal reasons were your payment history and your credit limit, which both raised your estimated risk of default. Your estimated risk was 69.4%, compared with a highest approved risk of 24.9%.\n\nCustomer: Did my credit limit count more against me than my balance?", "sentences": ["Yes.", "Your credit limit ranked second among the reasons for the decision and raised your risk, while your balance ranked third and actually lowered it.", "The model does not give a figure for how much each factor counted, only the order and direction."]}, {"item": "R017", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The main reasons were: (1) your payment history, and (2) your current credit limit.\n\nCustomer: Why does my income count so much against me?", "sentences": ["Your income does not count against you, because the model does not use income at all.", "The two main reasons your risk was raised are your payment history, with 1 late month out of six, compared with an average of 0.7 late months for approved customers near the line, and your credit limit of 60,000 NT dollars, compared with an average of 135,728 NT dollars for those customers.", "Your average balance of 26,542 NT dollars and your average payments of 1,667 NT dollars a month lowered your risk."]}, {"item": "R026", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, ranked first, and your payment amounts, ranked second.\n\nCustomer: Why does my income count so much against me?", "sentences": ["Income is not part of the decision.", "The model does not use income, employment, age, sex, marital status, or education.", "The reasons come from your payment history, where you were late in all 6 months, compared with an average of 0.7 late months for approved customers, and your payment amounts, which averaged 1000 NT dollars compared with 1883 for approved customers."]}, {"item": "R045", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The two principal reasons were your payment amounts, which raised your risk, and your payment history, which also raised your risk.\n\nCustomer: Why does my income count so much against me?", "sentences": ["Income does not count against you.", "The model does not use income at all, and it also leaves out age, sex, marital status, employment and education.", "The two factors that raised your risk were your payment amounts, which averaged 83 NT dollars a month against 1,883 for customers approved just inside the line, and your payment history, with 1 late month out of six against an average of 0.7 for those customers."]}, {"item": "R046", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, ranked first, and your payment amounts, ranked second.\n\nCustomer: Did I pay less each month than customers who were approved?\nAssistant: Yes. Over the six months you paid an average of 1,000 NT dollars a month, while customers approved just inside the line paid an average of 1,883 NT dollars. Your payments were late in 6 of the 6 months, compared with an average of 0.7 late months for those customers. This is the model's comparison of your record with those customers' records.\n\nCustomer: Can you show me each month?", "sentences": ["Here is each month, from April to September.", "You paid nothing in April, June, August and September, and 3,000 NT dollars in July and May.", "Late months were 2 in April, May, June and July, 3 in August, and 4 in September.", "Customers approved just inside the line were late in these shares of cases: April 11.7%, May 10.2%, June 12.9%, July 14.3%, August 5.3%, and September 18.0%."]}, {"item": "R055", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. Your estimated risk of default is 71.5%, while the highest risk the bank approves is 24.9%. The principal reasons were your record of past payments and the size of your current credit limit, listed in that order.\n\nCustomer: How far was I from being approved?", "sentences": ["The model estimates you would be approved if you paid on time for 5 more months, with nothing else changing.", "Paying more this month alone would not be enough, according to the model.", "Paying on time for 4 months and then adding 3,296 NT dollars in the fourth month would also be enough.", "These are the model's estimates, and they do not guarantee approval."]}, {"item": "R075", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The two principal reasons were your payment history and your credit limit, which both raised your estimated risk of default. Your estimated risk was 69.4%, compared with a highest approved risk of 24.9%.\n\nCustomer: Did my credit limit count more against me than my balance?", "sentences": ["No.", "Your credit limit raised your risk and ranked second among the reasons, behind payment history.", "Your balance did not count against you; the model ranked it third and it actually lowered your risk."]}, {"item": "R090", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. Your estimated risk of default is 25.5%, and the highest risk we approve is 24.9%. The principal reasons were, in order: your payment history, your current credit limit, and your current balance. Your payment amounts lowered your risk.\n\nCustomer: If I pay NT$10,000 more this month, will I definitely be approved?", "sentences": ["Based on the model's estimate, if nothing else changes, paying NT$10,000 more this month would lower your risk of default to 19.6% and be approved.", "This is an estimate, not a guarantee, so I can't say you will definitely be approved."]}, {"item": "R107", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The two principal reasons were your payment history and your credit limit, which both raised your estimated risk of default. Your estimated risk was 69.4%, compared with a highest approved risk of 24.9%.\n\nCustomer: What is the least I would have to do to be approved?", "sentences": ["The fewest you would need to do is pay on time for 2 months, with nothing else changing, according to the model.", "Paying more this month alone would not be enough.", "Paying on time for 1 month plus an extra 3,695 NT dollars in that month would also be enough, but 2 on-time months is the smaller step.", "These are the model's estimates, and they do not guarantee approval."]}, {"item": "R108", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The main reason was your payment history, which raised your estimated risk of default. Your estimated risk is 70.7%, compared with the highest risk of 24.9% that we approve. Your balance, credit limit, and payment amounts were also reviewed, and these lowered your risk.\n\nCustomer: Was it because of my age?", "sentences": ["No, age was not a factor.", "The model's reasons were your payment history, which raised your risk, and your balance, credit limit, and payment amounts, which lowered it.", "Age is not used by the model at all."]}, {"item": "R117", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, ranked first, and your payment amounts, ranked second.\n\nCustomer: Did I pay less each month than customers who were approved?", "sentences": ["Yes.", "Over the six months you paid an average of 1,000 NT dollars a month, while customers approved just inside the line paid an average of 1,883 NT dollars.", "Your payments were late in 6 of the 6 months, compared with an average of 0.7 late months for those customers.", "This is the model's comparison of your record with those customers' records."]}, {"item": "R123", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. Your estimated risk of default is 27.0%, above the highest risk we approve, which is 24.9%. The principal reasons were your credit limit, ranked first, and your payment amounts, ranked second. Both raised your risk compared with customers we approved.\n\nCustomer: Did I pay less each month than customers who were approved?", "sentences": ["Yes.", "Over the six months you paid an average of 356 NT dollars a month, while customers approved near the line paid an average of 1,883 NT dollars.", "Your payments were on time every month, but the amounts were much smaller.", "The model's estimate doesn't change if you pay more, so the decision would only change with a larger payment history."]}, {"item": "R124", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. The principal reasons were your payment history, your credit limit, and your balance, listed in that order of importance.\n\nCustomer: Did my balance count more against me than my payment amounts?", "sentences": ["Yes.", "Your balance ranked third among the factors that raised your risk, while your payment amounts ranked fourth and actually lowered your risk.", "Your payment history and credit limit ranked higher than your balance."]}, {"item": "R133", "conversation": "Bank: write the adverse-action notice.\nAssistant: Your request for a higher credit limit was declined. Your estimated risk of default is 27.0%, above the highest risk we approve, which is 24.9%. The principal reasons were your credit limit, ranked first, and your payment amounts, ranked second. Both raised your risk compared with customers we approved.\n\nCustomer: Did I pay less each month than customers who were approved?\nAssistant: Yes. Over the six months you paid an average of 356 NT dollars a month, while customers approved near the line paid an average of 1,883 NT dollars. Your payments were on time every month, but the amounts were much smaller. The model's estimate doesn't change if you pay more, so the decision would only change with a larger payment history.\n\nCustomer: Can you show me each month?", "sentences": ["Here is each month, from September back to April:\n\n- **Sep:** paid 1,104 NT dollars, on time, balance 3,714\n- **Aug:** paid 1,000 NT dollars, on time, balance 4,158\n- **Jul:** paid 31 NT dollars, on time, balance 4,654\n- **Jun:** paid 0 NT dollars, on time, balance 3,080\n- **May:** paid 0 NT dollars, on time, balance 0\n- **Apr:** paid 0 NT dollars, card not used, balance 0\n\nI also need to correct my last answer.", "I said paying more would not change the estimate and that only a larger payment history would change the decision, but I had not checked either point with the model.", "I can run the model's estimate for a larger payment or for more months of on-time payments if you want to see those results."]}];
+const FIELDS = ["type", "quantity", "decision", "direction", "value", "reference_value", "decimals", "action", "amount",
+  "months", "block", "other_block", "rank", "feature", "status", "is_used"];
+const BLOCKS = ["payment history", "balance", "payment amounts", "credit limit"];
+const MONTHS = ["Sep", "Aug", "Jul", "Jun", "May", "Apr"];
+const MONTHLY = [
+  ...MONTHS.map((m, i) => [i === 0 ? "PAY_0" : `PAY_${i + 1}`, `payment status, ${m}`]),
+  ...MONTHS.map((m, i) => [`BILL_AMT${i + 1}`, `balance, ${m}`]),
+  ...MONTHS.map((m, i) => [`PAY_AMT${i + 1}`, `payment, ${m}`]),
+];
+const MONTH_STATUS = MONTHLY.slice(0, 6).map(([v]) => v);  // one month's payment status: the only place a kind applies
+const NOT_USED = ["age", "sex", "marital status", "income", "employment", "education"];
+const KINDS = ["card not used", "paid in full", "paid on time", "late"];
+const TYPES = [["outcome", "Outcome"], ["action", "Action"], ["least", "Least action"], ["reason", "Reason"],
+  ["compare", "Compare"], ["measure", "Measure"], ["used", "Used by the model"]];
+
+const $ = (id) => document.getElementById(id);
+const state = { index: 0, labels: {}, saved: {}, elapsed: {}, touched: false, db: null, uid: null };
+
+function parseNumber(raw) {
+  const s = String(raw || "").toLowerCase();
+  const pct = /%|percent/.test(s);
+  const m = s.replace(/nt\$|ntd|,|\s/g, "").match(/-?\d+(\.\d+)?/);
+  if (!m) return null;
+  const txt = m[0].replace("-", "");
+  const after = txt.includes(".") ? txt.split(".")[1].length : 0;
+  let decimals = txt.includes(".") ? after : (/^0+$/.test(txt) ? 0 : -(txt.match(/0*$/)[0].length));
+  let value = parseFloat(m[0]);
+  if (pct) { decimals = after + 2; value = +(value / 100).toFixed(decimals); }
+  return { value, decimals };
+}
+const parseAmount = (raw) => { const v = parseFloat(String(raw || "").replace(/nt\$|,|\s|months?/gi, "")); return Number.isFinite(v) ? v : null; };
+
+function blankLabels(item) { return item.sentences.map(() => ({ kind: "", ui: [] })); }
+function labelsFor(item) {
+  if (!state.labels[item.item]) {
+    const saved = state.saved[item.item];
+    state.labels[item.item] = saved ? saved.sentences.map((s) => ({ kind: s.kind, ui: s.ui || [] })) : blankLabels(item);
+  }
+  return state.labels[item.item];
+}
+
+function toQuery(u) {
+  const q = Object.fromEntries(FIELDS.map((f) => [f, null]));
+  q.type = u.type || null;
+  let err = null;
+  const num = () => { const p = parseNumber(u.num); if (!p) err = "Type the number as written."; return p; };
+  const months = () => { const m = parseInt(u.months, 10); if (m >= 1 && m <= 6) return m; err = "Type the months on time, 1 to 6."; return null; };
+  switch (u.type) {
+    case "outcome":
+      if (!u.quantity) { err = "Pick what the sentence states."; break; }
+      q.quantity = u.quantity;
+      if (u.quantity === "decision") { if (!u.decision) err = "Pick the decision."; q.decision = u.decision || null; }
+      else { const p = num(); if (p) { q.value = p.value; q.decimals = p.decimals; } }
+      break;
+    case "action": {
+      if (!u.action) { err = "Pick the action."; break; }
+      q.action = u.action;
+      const a = parseAmount(u.amount);
+      if (a === null) { err = "Type the months or the amount."; break; }
+      q.amount = a;
+      if (u.action === "both" && (q.months = months()) === null) break;
+      if (!u.effect) { err = "Pick the stated effect."; break; }
+      if (u.effect === "approved" || u.effect === "declined") q.decision = u.effect;
+      else if (u.effect === "lower" || u.effect === "higher") q.direction = u.effect;
+      else { q.quantity = "risk"; const p = num(); if (p) { q.value = p.value; q.decimals = p.decimals; } }
+      break;
+    }
+    case "least":
+      if (!u.action) { err = "Pick the action."; break; }
+      q.action = u.action;
+      if (u.mode === "none") q.decision = "declined";
+      else if (u.action === "both" && (q.months = months()) === null) break;
+      else { const p = num(); if (p) { q.value = p.value; q.decimals = p.decimals; } }
+      break;
+    case "reason":
+      if (!u.block) { err = "Pick the factor."; break; }
+      q.block = u.block;
+      if (u.rank) { const r = parseInt(u.rank, 10); if (r >= 1) q.rank = r; else err = "The rank is a whole number from 1."; }
+      if (u.direction) q.direction = u.direction;
+      if (q.rank === null && q.direction === null) err = err || "Say what the sentence claims about the factor.";
+      break;
+    case "compare":
+      if (!u.block || !u.other_block) { err = "Pick both factors."; break; }
+      if (u.block === u.other_block) { err = "Pick two different factors."; break; }
+      q.block = u.block; q.other_block = u.other_block;
+      break;
+    case "measure":
+      if (!u.feature) { err = "Pick the feature or factor."; break; }
+      q.feature = u.feature;
+      if (u.status && MONTH_STATUS.includes(u.feature)) q.status = u.status;
+      if (u.num) {
+        const p = parseNumber(u.num);
+        if (!p) err = "Type the number as written.";
+        else if (!u.about) err = "Say whom the number is about.";
+        else { q[u.about === "group" ? "reference_value" : "value"] = p.value; q.decimals = p.decimals; }
+      }
+      if (u.direction) q.direction = u.direction;
+      if (!q.status && q.value === null && q.reference_value === null && !q.direction) err = err || "Say what the sentence states.";
+      break;
+    case "used":
+      if (!u.feature || !u.is_used) { err = "Pick the attribute and whether the model uses it."; break; }
+      q.feature = u.feature; q.is_used = u.is_used === "yes";
+      break;
+    default: err = "Pick a query type.";
+  }
+  return { q, err };
+}
+
+function select(id, label, value, options, onchange) {
+  const wrap = document.createElement("label");
+  wrap.className = "field"; wrap.htmlFor = id; wrap.textContent = label;
+  const el = document.createElement("select"); el.id = id;
+  for (const [v, t] of [["", "—"], ...options]) { const o = new Option(t, v); o.selected = v === (value || ""); el.add(o); }
+  el.addEventListener("change", () => onchange(el.value));
+  wrap.append(el); return wrap;
+}
+function input(id, label, value, placeholder, oninput) {
+  const wrap = document.createElement("label");
+  wrap.className = "field"; wrap.htmlFor = id; wrap.textContent = label;
+  const el = document.createElement("input"); el.id = id; el.value = value || ""; el.placeholder = "e.g. " + placeholder; el.autocomplete = "off";
+  el.addEventListener("input", () => oninput(el.value));
+  wrap.append(el); return wrap;
+}
+const opts = (list) => list.map((v) => [v, v]);
+
+function renderQuery(box, u, sid, qi, refresh) {
+  box.replaceChildren();
+  const fields = document.createElement("div"); fields.className = "fields";
+  const id = (n) => `s${sid}q${qi}-${n}`;
+  const set = (key, structural) => (v) => { u[key] = v; state.touched = true; if (structural) refresh(); else showParsed(); };
+  fields.append(select(id("type"), "Query", u.type, TYPES, set("type", true)));
+  const actions = [["on_time", "pay on time (months)"], ["pay_more", "pay more this month (NT$)"],
+    ["both", "both: months on time, then NT$ more"]];
+  const t = u.type, both = u.action === "both";
+  if (t === "outcome") {
+    fields.append(select(id("quantity"), "States", u.quantity, [["decision", "the decision"], ["risk", "the customer's risk"],
+      ["cutoff", "the highest approved risk"], ["gap", "the gap to approval"]], set("quantity", true)));
+    if (u.quantity === "decision") fields.append(select(id("decision"), "Decision", u.decision, opts(["declined", "approved"]), set("decision")));
+    else if (u.quantity) fields.append(input(id("num"), "Number as written", u.num, "29.3%", set("num")));
+  } else if (t === "action" || t === "least") {
+    fields.append(select(id("action"), "Action", u.action, actions, set("action", true)));
+    const monthsField = () => fields.append(input(id("months"), "Months on time", u.months, "6", set("months")));
+    if (t === "action") {
+      if (both) monthsField();
+      fields.append(input(id("amount"), both ? "NT$ more" : "Months or NT$", u.amount, both ? "NT$3,000" : "3", set("amount")));
+      fields.append(select(id("effect"), "Stated effect", u.effect, [["approved", "would be approved"], ["declined", "would still be declined"],
+        ["lower", "risk lower"], ["higher", "risk higher"], ["risk", "new risk is …"]], set("effect", true)));
+      if (u.effect === "risk") fields.append(input(id("num"), "New risk as written", u.num, "25.7%", set("num")));
+    } else {
+      fields.append(select(id("mode"), "The sentence says", u.mode, [["number", "this much would be needed"], ["none", "nothing would be enough"]], set("mode", true)));
+      if (u.mode === "number") {
+        if (both) monthsField();
+        fields.append(input(id("num"), both ? "NT$ more as written" : "Months or NT$ as written", u.num, "NT$2,600", set("num")));
+      }
+    }
+  } else if (t === "reason") {
+    fields.append(select(id("block"), "Factor", u.block, opts(BLOCKS), set("block")));
+    fields.append(input(id("rank"), "Rank", u.rank, "1", set("rank")));
+    fields.append(select(id("direction"), "Effect on risk", u.direction, [["higher", "raised it (a reason)"], ["lower", "lowered it (not a reason)"]], set("direction")));
+  } else if (t === "compare") {
+    fields.append(select(id("block"), "Counted more against the customer", u.block, opts(BLOCKS), set("block")));
+    fields.append(select(id("other_block"), "than", u.other_block, opts(BLOCKS), set("other_block")));
+  } else if (t === "measure") {
+    fields.append(select(id("feature"), "Feature or factor", u.feature, [...opts(BLOCKS), ...MONTHLY], set("feature", true)));
+    if (MONTH_STATUS.includes(u.feature)) fields.append(select(id("status"), "Kind of month", u.status, opts(KINDS), set("status")));
+    fields.append(select(id("about"), "Number is about", u.about, [["you", "the customer"], ["group", "approved customers"]], set("about")));
+    fields.append(input(id("num"), "Number as written", u.num, "NT$21,670", set("num")));
+    fields.append(select(id("direction"), "Customer is", u.direction, [["higher", "higher, later or more"], ["lower", "lower"]], set("direction")));
+  } else if (t === "used") {
+    fields.append(select(id("feature"), "Attribute", u.feature, opts([...BLOCKS, ...NOT_USED]), set("feature")));
+    fields.append(select(id("is_used"), "The sentence says the model", u.is_used, [["yes", "uses it"], ["no", "does not use it"]], set("is_used")));
+  }
+  const foot = document.createElement("div"); foot.className = "qfoot";
+  const parsed = document.createElement("span"); parsed.className = "parsed";
+  const remove = document.createElement("button"); remove.type = "button"; remove.className = "link"; remove.textContent = "Remove query";
+  remove.addEventListener("click", () => { const list = box._list; list.splice(list.indexOf(u), 1); state.touched = true; box._rerender(); });
+  foot.append(parsed, remove);
+  function showParsed() {
+    const { q, err } = toQuery(u);
+    parsed.textContent = err ? "" : Object.entries(q).filter(([, v]) => v !== null).map(([k, v]) => `${k}: ${v}`).join(" · ");
+  }
+  showParsed();
+  box.append(fields, foot);
+}
+
+function renderSentence(li, text, label, sid) {
+  li.replaceChildren();
+  li.dataset.kind = label.kind;
+  const p = document.createElement("p"); p.className = "text"; p.textContent = text;
+  const kinds = document.createElement("div"); kinds.className = "kinds"; kinds.setAttribute("role", "group");
+  for (const [k, t] of [["no_claim", "No claim"], ["claims", "Claims"], ["unmappable", "Not expressible"]]) {
+    const b = document.createElement("button"); b.type = "button"; b.dataset.k = k; b.textContent = t;
+    b.setAttribute("aria-pressed", String(label.kind === k));
+    b.addEventListener("click", () => {
+      label.kind = k; state.touched = true;
+      if (k === "claims" && !label.ui.length) label.ui.push({ type: "" });
+      renderSentence(li, text, label, sid);
+    });
+    kinds.append(b);
+  }
+  li.append(p, kinds);
+  if (label.kind === "claims") {
+    const queries = document.createElement("div"); queries.className = "queries";
+    const rerender = () => renderSentence(li, text, label, sid);
+    label.ui.forEach((u, qi) => {
+      const box = document.createElement("div"); box.className = "query";
+      box._list = label.ui; box._rerender = rerender;
+      const refresh = () => renderQuery(box, u, sid, qi, refresh);
+      refresh();
+      queries.append(box);
+    });
+    const add = document.createElement("button"); add.type = "button"; add.className = "link"; add.textContent = "Add a query";
+    add.addEventListener("click", () => { label.ui.push({ type: "" }); state.touched = true; rerender(); });
+    queries.append(add);
+    li.append(queries);
+  }
+  const error = document.createElement("p"); error.className = "error"; error.hidden = true; li.append(error); li._error = error;
+}
+
+function renderConversation(text) {
+  const box = $("conv"); box.replaceChildren();
+  for (const block of text.split("\n\n")) {
+    for (const line of block.split("\n")) {
+      const m = line.match(/^(Bank|Customer|Assistant): ?(.*)$/);
+      const div = document.createElement("p"); div.className = "turn";
+      const who = document.createElement("span"); who.className = "who"; who.textContent = m ? m[1] : "";
+      div.append(who, document.createTextNode(m ? m[2] : line));
+      box.append(div);
+    }
+  }
+}
+
+function render() {
+  const item = ITEMS[state.index];
+  $("itemTitle").textContent = `Answer ${item.item}`;
+  renderConversation(item.conversation);
+  const list = $("sentences"); list.replaceChildren();
+  labelsFor(item).forEach((label, sid) => { const li = document.createElement("li"); li.className = "sentence"; renderSentence(li, item.sentences[sid], label, sid); list.append(li); });
+  $("prev").disabled = state.index === 0;
+  $("saveError").hidden = true;
+  renderItems();
+  startClock();
+}
+
+function renderItems() {
+  const nav = $("items"); nav.replaceChildren();
+  ITEMS.forEach((it, i) => {
+    const b = document.createElement("button"); b.type = "button"; b.textContent = it.item.replace(/^R0*/, "R");
+    b.title = state.saved[it.item] ? `${it.item}: saved` : `${it.item}: not saved yet`;
+    if (state.saved[it.item]) b.classList.add("saved");
+    if (i === state.index) b.setAttribute("aria-current", "true");
+    b.addEventListener("click", () => go(i));
+    nav.append(b);
+  });
+  $("done").textContent = Object.keys(state.saved).filter((k) => ITEMS.some((it) => it.item === k)).length;
+  $("total").textContent = ITEMS.length;
+}
+
+let clock = { item: null, since: 0 };
+function stopClock() {
+  if (clock.item && clock.since) state.elapsed[clock.item] = (state.elapsed[clock.item] || 0) + (performance.now() - clock.since);
+  clock.since = 0;
+}
+function startClock() { stopClock(); clock = { item: ITEMS[state.index].item, since: document.hidden ? 0 : performance.now() }; }
+function seconds(item) {
+  const live = clock.item === item && clock.since ? performance.now() - clock.since : 0;
+  return ((state.elapsed[item] || 0) + live) / 1000 + (state.saved[item]?.seconds || 0);
+}
+document.addEventListener("visibilitychange", () => { if (document.hidden) stopClock(); else if (clock.item) clock.since = performance.now(); });
+setInterval(() => {
+  const s = Math.round(seconds(ITEMS[state.index].item));
+  $("timer").textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+}, 1000);
+
+function go(i) { stopClock(); state.index = Math.max(0, Math.min(ITEMS.length - 1, i)); render(); window.scrollTo({ top: 0 }); }
+
+async function save() {
+  const item = ITEMS[state.index];
+  const labels = labelsFor(item);
+  const items = [...$("sentences").children];
+  let first = null;
+  const sentences = labels.map((label, sid) => {
+    let err = !label.kind ? "Choose what this sentence does." : null;
+    const queries = [];
+    if (label.kind === "claims") {
+      if (!label.ui.length) err = "Add at least one query, or choose another kind.";
+      for (const u of label.ui) { const r = toQuery(u); if (r.err && !err) err = r.err; queries.push(r.q); }
+    }
+    items[sid]._error.textContent = err || ""; items[sid]._error.hidden = !err;
+    if (err && first === null) first = sid;
+    return { sentence: item.sentences[sid], kind: label.kind, queries, ui: label.kind === "claims" ? label.ui : [] };
+  });
+  if (first !== null) { items[first].scrollIntoView({ block: "center", behavior: "smooth" }); return; }
+  if (!state.db || !state.uid) { showSaveError("Saving is not available here. Open this page on claude.ai while signed in."); return; }
+  stopClock();
+  const doc = { item: item.item, sentences, seconds: Math.round(seconds(item.item)), saved_at: new Date().toISOString() };
+  $("save").disabled = true; $("saveState").textContent = "Saving…";
+  try {
+    if (!state.registered) {  // lets the owner find each rater's labels
+      await state.db.doc(`raters/${state.uid}`).set({ updated_at: doc.saved_at });
+      state.registered = true;
+    }
+    await state.db.doc(`raters/${state.uid}/labels/${item.item}`).set(doc);
+    state.saved[item.item] = doc; delete state.elapsed[item.item];
+    $("saveState").textContent = "Saved";
+    const next = ITEMS.findIndex((it, i) => i > state.index && !state.saved[it.item]);
+    go(next >= 0 ? next : state.index);
+  } catch (e) {
+    showSaveError(e && e.code === "quota_exceeded" ? "The store is full; nothing more can be saved." : "Saving failed. Try again in a moment.");
+    $("saveState").textContent = "Not saved";
+    startClock();
+  } finally { $("save").disabled = false; }
+}
+function showSaveError(text) { const el = $("saveError"); el.textContent = text; el.hidden = false; }
+
+$("save").addEventListener("click", save);
+$("prev").addEventListener("click", () => go(state.index - 1));
+render();
+
+(async () => {
+  const [db, user] = await Promise.all([window.claude?.use?.("db") ?? null, window.claude?.use?.("user") ?? null]);
+  const uid = user ? await user.id() : null;
+  if (!db || !uid) {
+    $("saveState").textContent = "Not connected";
+    const banner = $("banner"); banner.hidden = false;
+    banner.textContent = "Your labels cannot be saved in this view. Open the page on claude.ai while signed in to save them.";
+    return;
+  }
+  state.db = db; state.uid = uid;
+  const timer = setTimeout(() => { $("saveState").textContent = "Saved labels cannot be reached yet"; }, 10000);
+  let first = true;
+  db.collection(`raters/${uid}/labels`).onSnapshot((snap) => {
+    if (!snap.metadata.fromCache) clearTimeout(timer);
+    for (const d of snap.docs) state.saved[d.id] = d.data();
+    $("saveState").textContent = "Connected";
+    if (first && !state.touched) {
+      first = false;
+      state.labels = {};
+      const next = ITEMS.findIndex((it) => !state.saved[it.item]);
+      go(next >= 0 ? next : 0);
+    } else renderItems();
+  }, () => { clearTimeout(timer); $("saveState").textContent = "Saved labels cannot be reached"; });
+})();
+</script>
