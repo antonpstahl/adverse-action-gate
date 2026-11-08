@@ -1,26 +1,26 @@
 # adverse-action-gate
 
-A checked assistant for adverse-action reasons. An LLM answers a declined applicant's questions about their credit decision; a gate maps each statement to a query, runs it on the credit model and releases only what the model confirms. Plan: `../../Preparation/Revision_Plan_Lean_Thesis.md`. Rules for working here: `CLAUDE.md`. Decisions: `docs/decisions.md`.
+A checked assistant for adverse-action reasons. An LLM answers a declined applicant's questions about their credit decision; a gate maps each statement to a query, runs it on the credit model and releases only what the model confirms.
 
 ## Layout
 
-| File | Does | Target lines |
+| File | Does |
 |---|---|---|
-| `src/aa_gate/settings.py` | Seeds, approval rate, blocks, monotone constraints, models, the scorer, prices, paths | ~40 |
-| `src/aa_gate/data.py` | Load TaiwanCredit without SEX, MARRIAGE, AGE, EDUCATION; split; kinds of payment status | ~50 |
-| `src/aa_gate/model.py` | Fit the constrained EBM and XGBoost; risk, log-odds, cutoff, cut points | ~60 |
-| `src/aa_gate/reference.py` | Reg B reference groups (methods 1 and 2), exact block Shapley, principal reasons | ~60 |
-| `src/aa_gate/actions.py` | Customer actions as consistent feature changes | ~55 |
-| `src/aa_gate/queries.py` | The bank (model, cutoff, groups), the exact least action, the seven query types, their fields (QUERY) and their verdicts | ~270 |
-| `src/aa_gate/writer.py` | The writer with tools: the notice, then the answers | ~145 |
-| `src/aa_gate/gate.py` | The gate's reader, the check, the gate, conversations in both conditions | ~205 |
-| `src/aa_gate/llm.py` | Cached Claude calls and OpenAI batches with truncation guard, list price | ~100 |
-| `src/aa_gate/run.py` | Run both conditions on a slice of the declined applicants | ~70 |
-| `src/aa_gate/reading.py` | The scorer's reading of every answer, the blind check sample and its reading page, labels in | ~110 |
-| `src/aa_gate/reading_page.html` | The reading page: sentences to queries in the reader's format, reading time per answer, labels saved per rater | ~470 |
-| `src/aa_gate/evaluate.py` | Answer rate, error rate, intervals, the difference, the scorer's agreement with the check | ~130 |
-| `src/aa_gate/study.py` | Planned: the participant page for the user study, notice beside a chat whose answers pass the gate | ~150 |
-| `tests/` | Reference, actions, queries and gate verdicts against hand-computed cases and brute force | ~350 |
+| `src/aa_gate/settings.py` | Seeds, approval rate, blocks, monotone constraints, models, the scorer, prices, paths |
+| `src/aa_gate/data.py` | Load TaiwanCredit without SEX, MARRIAGE, AGE, EDUCATION; split; kinds of payment status |
+| `src/aa_gate/model.py` | Fit the constrained EBM and XGBoost; risk, log-odds, cutoff, cut points |
+| `src/aa_gate/reference.py` | Reg B reference groups (methods 1 and 2), exact block Shapley, principal reasons |
+| `src/aa_gate/actions.py` | Customer actions as consistent feature changes |
+| `src/aa_gate/queries.py` | The bank (model, cutoff, groups), the exact least action, the seven query types, their fields (QUERY) and their verdicts |
+| `src/aa_gate/writer.py` | The writer with tools: the notice, then the answers |
+| `src/aa_gate/gate.py` | The gate's reader, the check, the gate, conversations in both conditions |
+| `src/aa_gate/llm.py` | Cached Claude calls and OpenAI batches with truncation guard, list price |
+| `src/aa_gate/run.py` | Run both conditions on a slice of the declined applicants |
+| `src/aa_gate/reading.py` | The scorer's reading of every answer, the blind check sample and its reading page, labels in |
+| `src/aa_gate/reading_page.html` | The reading page: sentences to queries in the reader's format, reading time per answer, labels saved per rater |
+| `src/aa_gate/evaluate.py` | Answer rate, error rate, intervals, the difference, the scorer's agreement with the check |
+| `src/aa_gate/study.py` | Planned: the participant page for the user study, notice beside a chat whose answers pass the gate |
+| `tests/` | Reference, actions, queries and gate verdicts against hand-computed cases and brute force |
 
 ## Use
 
