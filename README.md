@@ -18,7 +18,7 @@ A checked assistant for adverse-action reasons. An LLM answers a declined applic
 | `src/aa_gate/run.py` | Run both conditions on a slice of the declined applicants |
 | `src/aa_gate/reading.py` | The scorer's reading of every answer, the blind check sample and its reading page, labels in |
 | `src/aa_gate/reading_page.html` | The reading page: sentences to queries in the reader's format, reading time per answer, labels saved per rater |
-| `src/aa_gate/evaluate.py` | Answer rate, error rate, intervals, the difference, the scorer's agreement with the check |
+| `src/aa_gate/evaluate.py` | Answer rate, error rate, intervals, the difference, the scorer's agreement with the check; the counterfactual test: released answers on applicants with one block changed (decision 59) |
 | `src/aa_gate/study.py` | Planned: the participant page for the user study, notice beside a chat whose answers pass the gate |
 | `tests/` | Reference, actions, queries and gate verdicts against hand-computed cases and brute force |
 
@@ -32,7 +32,7 @@ uv run python -m aa_gate.run --kind ebm --start 10 --n 40 --out confirm --batch 
 uv run python -m aa_gate.run --kind xgb --start 10 --n 40 --out confirm --batch  # one per model, batched at half the price
 uv run python -m aa_gate.reading --run confirm --kind ebm                 # the scorer reads every answer; the check page,
 uv run python -m aa_gate.reading --run confirm --kind xgb                 # one per model
-uv run python -m aa_gate.evaluate --run confirm --kind ebm xgb            # every table: rates, intervals, the difference
+uv run python -m aa_gate.evaluate --run confirm --kind ebm xgb            # every table: rates, intervals, the difference, the counterfactual test
 ```
 
 Every LLM call is cached in `cache/llm/`; with `AA_GATE_OFFLINE=1` an uncached call raises instead of calling the API. Fitted models are cached in `cache/models/`; delete them after changing a setting.

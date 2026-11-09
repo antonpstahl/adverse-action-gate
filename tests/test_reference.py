@@ -4,10 +4,12 @@ from itertools import permutations
 
 import numpy as np
 import pandas as pd
+import pytest
 from sklearn.ensemble import GradientBoostingClassifier
 
 from aa_gate import actions
 from aa_gate.model import logit, risk
+from aa_gate.queries import build, shortfalls
 from aa_gate.reference import reasons, shapley
 from aa_gate.settings import APPROVAL_RATE, BAND, BILLS, BLOCKS, FEATURES, MAX_REASONS, PAYMENTS, STATUS
 
@@ -42,6 +44,22 @@ def test_shapley_matches_the_average_over_all_orders_for_a_model_with_interactio
     phi = shapley(model, x, ref)
     assert np.allclose(phi, pd.Series(total) / len(orders), atol=1e-9)
     assert np.isclose(phi.sum(), logit(model, x.to_frame().T)[0] - logit(model, ref).mean())
+
+
+@pytest.mark.parametrize("kind", ["ebm", "xgb"])
+def test_changing_one_block_changes_its_shortfall_alone(kind):
+    """Both models add up over the blocks, which the counterfactual test (decision 59) rests on: setting one block of a
+    declined applicant to a reference row's values changes that block's shortfall by exactly the change in the
+    applicant's log-odds and leaves the other three as they were, under both methods (XGBoost computes in float32)."""
+    real = build(kind)
+    x, r = real.declined.iloc[0], real.refs[1].iloc[0]
+    for m in (1, 2):
+        before = shortfalls(real, x, m)
+        for b, cols in BLOCKS.items():
+            xb = x.where(~x.index.isin(cols), r)
+            after, change = shortfalls(real, xb, m), np.diff(logit(real.model, pd.DataFrame([x, xb])))[0]
+            assert np.allclose(after.drop(b), before.drop(b), rtol=0, atol=1e-6)
+            assert np.isclose(after[b] - before[b], change, rtol=0, atol=1e-6)
 
 
 def test_method_1_holds_the_approved_applicants_just_inside_the_cutoff(bank, train):
