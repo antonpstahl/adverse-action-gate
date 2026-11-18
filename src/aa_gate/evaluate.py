@@ -1,7 +1,7 @@
 """The metrics (plan §4) per model and condition, and pooled over the models, with 95% intervals bootstrapped over
 applicants, and the difference of the error rates with its interval; as in He & Martens 2026, no test (decision 44).
 
-    uv run python -m aa_gate.evaluate --run confirm --kind ebm xgb
+    uv run python -m aa_gate.evaluate --run pilot6 --kind ebm xgb
 
 The answer rate needs only the run. The error rate needs the scorer's reading (reading.py; decision 45): the gate's
 own reader never scores anything. Anton's blind check of a sample gives the scorer's agreement with a person. Writes

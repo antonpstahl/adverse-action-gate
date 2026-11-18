@@ -3,7 +3,7 @@
 item. Anton reads N_CHECK of them per model blind, half where the conditions differ, to check the scorer. Neither
 sees the condition or the model's facts.
 
-    uv run python -m aa_gate.reading --run confirm --kind xgb
+    uv run python -m aa_gate.reading --run pilot6 --kind xgb
 
 writes results/<run>/reading/sample_<kind>.csv (every item), key_<kind>.csv (for the evaluation), scores_<kind>.jsonl
 (the scorer's reading), check_<kind>.csv and page_<kind>.html, the reading page for the check, with the answers split
